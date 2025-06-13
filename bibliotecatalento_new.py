@@ -1,4 +1,4 @@
-# función para el análisis de valores únicos
+
 # importamos las librerías que necesitamos
 
 # Tratamiento de datos
@@ -11,6 +11,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
 
+# función para el análisis de valores únicos
 def valores_unicos(df, nombre= 'DataFrame'):
     print(f'Buscando valores únicos en {nombre}')
     for col in df.columns:
@@ -98,7 +99,7 @@ def nulos_numericos(df):
     plt.show()
 def nulos_bool(df):
   # Columnas con tipo bool tienen al menos un nulo
-  print("Las columnas objeto con nulos")
+  print("Las columnas booleanas con nulos")
   columnas_bool = [col for col in df.select_dtypes(include=['bool']).columns if df[col].isna().sum() > 0]
   print(columnas_bool)
   # Proporción de valores entre cada categoría de las variables bool

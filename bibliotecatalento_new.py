@@ -181,3 +181,28 @@ def imputar_nulos_objetos_nueva_categoria(df, columnas, metodo='moda', nueva_cat
             print(f"Método no reconocido: '{metodo}' (usa 'moda' o 'nueva_categoria')")
 
     return df
+
+from sqlalchemy import create_engine  # sqlalchemy es una librería que permite conectarse y trabajar con bases de datos de manera más abstracta y flexible. 'create_engine' permite crear una conexión a bases de datos SQL de diferentes tipos, como MySQL, PostgreSQL, SQLite, etc.
+import pymysql
+
+def create_db(database= 'database', host= 'host', user='user', password= 'password'):
+    # Conectar a MySQL usando pymysql
+    connection = pymysql.connect(
+        host= host,
+        user=user,
+        password= password
+    )
+    # Crear un cursor
+    cursor = connection.cursor()
+    # Crear una base de datos si no existe
+    cursor.execute(f"CREATE DATABASE IF NOT EXISTS {database}")
+    print("Base de Datos creada exitosamente.")
+    # Cerrar la conexión
+    connection.close()
+def load_data(table_name, data, user, password, host, database):
+    print(f"Cargando datos en la tabla {table_name}...")
+    # Crear conexión a MySQL usando SQLAlchemy
+    engine = create_engine(f'mysql+pymysql://{user}:{password}@{host}/{database}')
+    # Insertar datos desde el DataFrame en MySQL
+    data.to_sql(table_name, con=engine, if_exists='append', index=False)
+    print(f"Datos insertados en la tabla {table_name} exitosamente.")

@@ -199,6 +199,7 @@ def create_db(database= 'database', host= 'host', user='user', password= 'passwo
     print("Base de Datos creada exitosamente.")
     # Cerrar la conexión
     connection.close()
+    
 def load_data(table_name, data, user, password, host, database):
     print(f"Cargando datos en la tabla {table_name}...")
     # Crear conexión a MySQL usando SQLAlchemy

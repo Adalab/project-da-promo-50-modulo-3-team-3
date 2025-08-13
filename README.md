@@ -1,5 +1,4 @@
-# project-da-promo-50-modulo-3-team-4
-Proyecto final módulo 3
+
 # Análisis de Optimización del Talento – Proyecto ABC Corporation
 ## Objetivo
 Este proyecto tiene como finalidad **entender los factores que influyen en la satisfacción y retención del talento humano** en ABC Corporation. A partir del análisis de datos internos, buscamos responder:
